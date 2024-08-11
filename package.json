@@ -1,11 +1,8 @@
 {
-  "name": "@opecgame/twapi",
-  "version": "1.2.1",
-  "description": "Redeem Money form Truemoney Gift",
-  "main": "index.js",
-  "scripts": {
-    "test": "node test"
-  },
+  "name": "truewalletvoucher",
+  "version": "2.0.0",
+  "description": "Redeem Money form Truemoney Voucher",
+  "main": "src/index.js",
   "keywords": [
     "truewallet",
     "truemoney",
@@ -13,14 +10,22 @@
     "tw",
     "gift",
     "truewallet-gift",
-    "aungpao"
+    "aungpao",
+    "truemoney-voucher",
+    "truewallet-voucher"
   ],
-  "author": "OpecZ Dev",
-  "repository": "https://github.com/opecgame/twapi",
+  "author": "HewkawAr",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hewkawar/twapi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hewkawar/twapi/issues"
+  },
+  "homepage": "https://github.com/hewkawar/twapi#readme",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.24.0",
     "https": "^1.0.0"
-  },
-  "devDependencies": {}
+  }
 }
