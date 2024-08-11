@@ -1,34 +1,34 @@
-# Api-TrueWallet-NodeJS-Module
-Wallet coupon clipping with NodeJs and callbacks for easier separation.
+# Truewallet Voucher for JS
 
-+ 📦 เบากว่าขนนก (625 bytes)
+## Features
+
 + ✔️ ฟีเจอร์ครบรองรับทั้งโค๊ดอังเปาและ URL
 
 ## Installation
 ```sh
-npm i @opecgame/twapi
+npm i truewalletvoucher
 ```
 
 How To Use
 
 ```js
-const twApi = require('@opecgame/twapi')
-function getWallet(code) {
-      const tw = await twApi(code, '[เบอร์โทร]')
-      console.log(tw)
+const twApi = require('truewalletvoucher');
+function redeem(code) {
+      const voucher = await twApi(code, '[เบอร์โทร]');
+      console.log(voucher);
 }
 
-getWallet()
+redeem("xxxxx");
 ```
 
 Example Code
 ```js
-const twApi = require('@opecgame/twapi')
-function getWallet(code) {
-      const tw = await twApi(code, '[เบอร์โทร]')
-      switch (tw.status.code) {
+const twApi = require('truewalletvoucher');
+function redeem(code) {
+      const voucher = await twApi(code, '[เบอร์โทร]');
+      switch (voucher.status.code) {
             case "SUCCESS":
-                  console.log('ไดรับเงินแล้วจำนวน'+tw.data.my_ticket.amount_baht)
+                  console.log('ไดรับเงินแล้วจำนวน'+ voucher.data.my_ticket.amount_baht)
                   break;
             case "CANNOT_GET_OWN_VOUCHER":
                   console.log('รับซองตัวเองไม่ได้')
