@@ -11,25 +11,31 @@ const twResponse = require("./interfaces/twResponse");
  */
 const twApi = async (code, phoneNumber) => {
     code = code.replace("https://gift.truemoney.com/campaign/?v=", "");
-    const data = await axios.post({
-        url: `https://gift.truemoney.com/campaign/vouchers/${code}/redeem`,
-        data: { mobile: phoneNumber },
-        headers: {
-            "User-Agent":
-                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36 Edg/84.0.522.52",
-            "Content-Type": "application/json",
-        },
-        httpsAgent: new Agent({
-            maxVersion: "TLSv1.3",
-            minVersion: "TLSv1.3",
-        }),
-    }).then((res) => {
-        return res.data;
-    }).catch((error) => {
-        return error.response.data;
-    });
-
-    return data;
+    try {
+        const response = await axios.post(
+            `https://gift.truemoney.com/campaign/vouchers/${code}/redeem`,
+            { mobile: phoneNumber },
+            {
+                headers: {
+                    "User-Agent":
+                        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36 Edg/84.0.522.52",
+                    "Content-Type": "application/json",
+                },
+                httpsAgent: new Agent({
+                    maxVersion: "TLSv1.3",
+                    minVersion: "TLSv1.3",
+                }),
+            }
+        );
+        return response.data;
+    } catch (error) {
+        // Check if error.response exists, otherwise return a custom error message
+        if (error.response) {
+            return error.response.data;
+        } else {
+            return { error: "Network or server error. Please try again later." };
+        }
+    }
 };
 
 module.exports = twApi;
