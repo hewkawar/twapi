@@ -26,7 +26,7 @@ export async function twApi(voucher: string, phoneNumber: string): Promise<twRes
         if (axios.isAxiosError(error) && error.response) {
             return error.response.data;
         } else {
-            return { error: "Network or server error. Please try again later." };
+            throw new Error("Network or server error. Please try again later.");
         }
     }
 }
