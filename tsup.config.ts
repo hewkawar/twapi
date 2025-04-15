@@ -1,19 +1,20 @@
-// tsup.config.ts
 import { defineConfig } from 'tsup'
 
 export default defineConfig([
-  {
-    entry: ['src/index.ts'],
-    format: ['esm'],
-    outDir: 'dist',
-    dts: true,
-    outExtension: () => ({ js: '.mjs' }),
-  },
-  {
-    entry: ['src/index.ts'],
-    format: ['cjs'],
-    outDir: 'dist',
-    // Don't include dts again to avoid conflicts
-    outExtension: () => ({ js: '.js' }),
-  }
+    {
+        entry: ['src/index.ts'],
+        format: ['esm'],
+        outDir: 'dist',
+        outExtension: () => ({ js: '.mjs' }),
+        // don't generate dts here
+        dts: false,
+        clean: true
+    },
+    {
+        entry: ['src/index.ts'],
+        format: ['cjs'],
+        outDir: 'dist',
+        outExtension: () => ({ js: '.js' }),
+        dts: true
+    }
 ])
