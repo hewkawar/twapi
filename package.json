@@ -2,7 +2,13 @@
   "name": "truewalletvoucher",
   "version": "2.0.6",
   "description": "Redeem Money form Truemoney Voucher",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.mjs",
+  "type": "module",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --out-dir dist"
+  },
   "keywords": [
     "truewallet",
     "truemoney",
@@ -15,8 +21,7 @@
     "truewallet-voucher"
   ],
   "files": [
-    "src/index.js",
-    "src/interfaces/twResponse.js"
+    "dist"
   ],
   "author": "HewkawAr",
   "repository": {
@@ -31,5 +36,11 @@
   "dependencies": {
     "axios": "^1.7.3",
     "https": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.1",
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
   }
 }
