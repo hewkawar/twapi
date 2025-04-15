@@ -1,6 +1,6 @@
 {
   "name": "truewalletvoucher",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "Redeem Money form Truemoney Voucher",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
